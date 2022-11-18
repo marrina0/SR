@@ -1,0 +1,58 @@
+#1
+x = float(input())
+y = float(input())
+if -0.5 < x < 3.5 and 1 < y < 2.8:
+    print('точка принадлежит прямоугольнику')
+    print('s =', 4*1.8)
+    print('p=', 2*4+2*1.8)
+elif (x == -0.5 and 1 <= y <= 2.8):
+    print('точка на границе')
+    print('x =', x+1)
+    print('y =', y)
+elif (x == 3.5 and 1 <= y <= 2.8):
+    print('точка на границе')
+    print('x =', x-1)
+    print('y =', y)
+elif (y == 1 and -0.5 <= x <= 3.5):
+    print('точка на границе')
+    print('x =', x)
+    print('y =', y+1)
+elif (y == 2.8 and -0.5 <= x <= 3.5):
+    print('точка на границе')
+    print('x =', x)
+    print('y =', y -1)
+elif (x < -0.5 and x > 3.5) and (y < 1 and y > 2.8):
+    print('точка не принадлежит прямоугольнику')
+    a, b = input('Введите две строки:'), input()
+    l1, l2 = len(a), len(b)
+    s = 4*1.8
+    if l1 > l2:
+        f = a
+    else:
+        f = b
+        if len(f) > s:
+            print('s<', f)
+        else:
+            print('s>', f)
+
+
+#2
+b, a = input(), input()
+l = len(b)
+k = len(a)
+if a in b:
+    x = (3.14+l)/k
+print('подстрока "', a, '" есть в строке "', b, '"')
+print(x)
+elif a not in b and l % 2 == 0:
+     print('длина строки четна')
+elif a not in b and l % 2 != 0:
+     print('длина строки нечетна')
+elif l % 2 == 0 and l % 5 == 0:
+     print(a+b, len(a+b))
+elif l % 2 != 0 and l % 3 == 0:
+    p, q, r = input('введите три строки'), input(), input()
+    l1, l2, l3 = len(p), len(q), len(r)
+    print(max(l1, l2, l3))
+else:
+    print('exit')
