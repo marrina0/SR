@@ -1,0 +1,52 @@
+#1
+import statistics
+import numpy
+import math
+
+
+def z1(*x):
+    z = []
+    z += x
+    mean1 = statistics.mean(z)
+    svd = sum((i - mean1) ** 2 for i in z) / len(z)
+    return mean1, svd, numpy.std(z), numpy.std(z)/statistics.mean(z)
+
+print(z1(1, 3, 5, 4, 6))
+
+#2
+
+def f(*x):
+    list_of_str = []
+    list_of_num = []
+    list_of_bool = []
+    list_of_other = []
+    z = []
+    z += x
+    for i in z:
+        if type(i) == str:
+            list_of_str.append(i)
+        elif type(i) == int or type(i) == float:
+            list_of_num.append(i)
+        elif type(i) == bool:
+            list_of_bool.append(i)
+        else:
+            list_of_other.append(i)
+    print('list of num:', list_of_num,'\n' 'list of str:', list_of_str,'\n' 'list_of_bool:', list_of_bool,'\n' 'list of other:', list_of_other)
+
+
+f(1,'hi', False, 2.3, 'yes', True, (1, 2))
+
+#3
+
+def get_dict_element(keyword, **kwargs):
+    for key, value in kwargs.items():
+        if isinstance(value, dict):
+            if keyword in value.keys():
+                print({keyword: value[keyword]})
+            else:
+                get_dict_element(keyword, **value)
+
+
+my_dict1 = {'1': {'DEBUG': 'Tracemod'}, '2': {'ERROR': 'Null pointer exeption'}, '3': {'INFO': 'startGame allert'},
+            '4': {'DEBUG': 'sendAllert'}, '5': {'ERROR': 'No validate JSON'}}
+get_dict_element('ERROR', **my_dict1)
